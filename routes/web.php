@@ -19,13 +19,19 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin','middleware' => 'admin:admin'],function(){
-    Route::get('/login',[AdminController::class,'loginForm']);
+    Route::get('/login',[AdminController::class,'loginForm'])->name('admin.loginForm');
     Route::post('/login',[AdminController::class,'store'])->name('admin.login');
 });
 
-Route::middleware(['auth:sanctum,admin', 'verified'])->get('admin/dashboard', function () {
-    return view('dashboard');
+Route::middleware(['admin_auth:sanctum,admin', 'verified'])->get('admin/dashboard', function () {
+    return view('admin.index');
 })->name('dashboard');
+// Admin Routes
+
+Route::get('admin/logout',[AdminController::class,'destroy'])->name('admin.logout');
+
+
+
 
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
