@@ -1,4 +1,4 @@
-@extends('admin.admin_master');
+@extends('admin.admin_master')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 @section('admin')
 
@@ -12,7 +12,8 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col">
-                        <form novalidate="">
+                        <form novalidate="" method="post" action="{{route('admin.profile.store')}}" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <div class="col-12">
                                     <div class="row">
