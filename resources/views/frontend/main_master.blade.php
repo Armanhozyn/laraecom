@@ -11,7 +11,7 @@
 <title>Flipmart premium HTML5 & CSS3 Template</title>
 
 <!-- Bootstrap Core CSS -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}">
 
 <!-- Customizable CSS -->
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css')}}">

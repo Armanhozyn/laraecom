@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,7 +44,9 @@ Route::get('/admin/change/password',[AdminProfileController::class,'AdminChangeP
 
 Route::post('/update/change/password',[AdminProfileController::class,'UpdateChangePassword'])->name('update.change.password');
 
-
+// User Route
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/',[IndexController::class,'index'])->name('index');
